@@ -31,7 +31,7 @@ class PostSoftengSeeder extends Seeder
                 'slug' => Str::slug($title[$i]),
                 // 'category_id' => Category::where('name', 'Software Engineering'),
                 'category_id' => 6,
-                'author_id' => $author->random()->id
+                'author_id' => $author->random()->author_id
             ]);
         }
     }

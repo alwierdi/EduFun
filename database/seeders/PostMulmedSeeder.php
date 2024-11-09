@@ -37,7 +37,7 @@ class PostMulmedSeeder extends Seeder
                 'slug' => Str::slug($title[$i]),
                 // 'category_id' => Category::where('name', 'Interactive Multimedia')->value('id'),
                 'category_id' => 5,
-                'author_id' => $author->random()->id
+                'author_id' => $author->random()->author_id
             ]);
         }
     }
