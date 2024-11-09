@@ -23,14 +23,17 @@ class PostSoftengSeeder extends Seeder
             'Siap Menjadi Seorang Software Engineering',
         ];
 
+        $category = Category::where('name', 'Software Engineering')->first();
+
         $author = Author::all();
         for ($i = 0; $i < count($title); $i++) {
             Post::create([
                 'title' => $title[$i],
                 'content' => $faker->paragraph,
                 'slug' => Str::slug($title[$i]),
+                'category_id' => $category->category_id,
                 // 'category_id' => Category::where('name', 'Software Engineering'),
-                'category_id' => 6,
+                // 'category_id' => 2,
                 'author_id' => $author->random()->author_id
             ]);
         }

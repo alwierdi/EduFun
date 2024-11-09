@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -23,9 +24,7 @@ Route::get('/popular', function () {
 });
 
 Route::prefix('/category')->group(function () {
-    Route::get('/interactive-multimedia', function () {
-        return view('mulmed');
-    });
+    Route::get('/interactive-multimedia', [PostController::class, 'displayMulmed'])->name('view.post.mulmed');
 
     Route::get('/software-engineering', function () {
         return view('softeng');

@@ -26,17 +26,21 @@ class PostMulmedSeeder extends Seeder
 
         // Query semua data authors == SELECT * FROM authors
         $author = Author::all();
+        $categories = Category::all();
 
-        // Memastikan bahwa category yang sesuai ada di database
-        $category = Category::where('name', 'Interactive Multimedia')->first();
 
         for ($i = 0; $i < count($title); $i++) {
+
+            // Memastikan bahwa category yang sesuai ada di database
+            $category = $categories->where('name', 'Interactive Multimedia')->first();
+
             Post::create([
                 'title' => $title[$i],
                 'content' => $faker->paragraph,
                 'slug' => Str::slug($title[$i]),
+                'category_id' => $category->category_id,
                 // 'category_id' => Category::where('name', 'Interactive Multimedia')->value('id'),
-                'category_id' => 5,
+                // 'category_id' => 1,
                 'author_id' => $author->random()->author_id
             ]);
         }
