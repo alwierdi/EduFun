@@ -12,6 +12,8 @@ class PostController extends Controller
     {
         $authors = AuthorModel::with('postsRelation')->get();
         $posts = PostModel::with('authorsRelation', 'categoriesRelation')->get();
-        dd($authors, $posts);
+        // dd($authors, $posts);
+
+        return view('posts.mulmedPosts', compact('authors', 'posts'));
     }
 }

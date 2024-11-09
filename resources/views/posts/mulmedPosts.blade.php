@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('bootstrap/bootstrap-5.3.3-dist/css/bootstrap.min.css') }}">
+    <title>Interactive Multimedia - Category</title>
+</head>
+
+<body>
+    <x-navbar></x-navbar>
+    <h1>Interactive Multimedia</h1>
+
+    <section>
+        <div class="container mt-t">
+            <div class="text-center">
+                @foreach ($posts as $p)
+                    <div class="row mb-4">
+                        <div class="col-4">
+                            <img src="img/gibran.jpg" alt="" class="img-thumbnail img-fluid rounded">
+                        </div>
+                        <div class="col text-start">
+                            <h1>{{ $p->title }}</h1>
+                            <span>by {{ $p->authorsRelation->name }}</span>
+
+                            @foreach ($p->categoriesRelation as $category)
+                                <span>{{ $category->name }}</span>
+                            @endforeach
+                            <p>{{ $p->content }}</p>
+                        </div>
+                    </div>
+                @endforeach
+
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="d-flex justify-content-center align-middle p-5 mt-5 text-light" style="background-color: #2F4F4F">
+        <p>EduFun 2024 | Web Programming | Alwi Erdi Musthafa | 2602205742</p>
+    </footer>
+
+    <script src="{{ asset('bootstrap/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js') }}" defer></script>
+</body>
+
+</html>
