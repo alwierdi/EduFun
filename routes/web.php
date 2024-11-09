@@ -22,10 +22,12 @@ Route::get('/popular', function () {
     return view('popular');
 });
 
-Route::get('/category/interactive-multimedia', function () {
-    return view('category/multimedia');
-});
+Route::prefix('/category')->group(function () {
+    Route::get('/interactive-multimedia', function () {
+        return view('mulmed');
+    });
 
-Route::get('/category/software-engineering', function () {
-    return view('category/software-engineering');
+    Route::get('/software-engineering', function () {
+        return view('softeng');
+    });
 });

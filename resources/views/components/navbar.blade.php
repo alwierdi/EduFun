@@ -15,8 +15,8 @@
                             Category
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Interactive Multimedia</a></li>
-                            <li><a class="dropdown-item" href="#">Software Engineering</a></li>
+                            <li><a class="dropdown-item" href="/category/interactive-multimedia">Interactive Multimedia</a></li>
+                            <li><a class="dropdown-item" href="/category/software-engineering">Software Engineering</a></li>
                         </ul>
                     </li>
                     <x-nav-link href="/">Writers</x-nav-link>
