@@ -24,7 +24,7 @@ Route::get('/popular', function () {
 });
 
 Route::prefix('/category')->group(function () {
-    Route::get('/interactive-multimedia', [PostController::class, 'displayMulmed'])->name('view.post.mulmed');
+    Route::get('/interactive-multimedia', [PostController::class, 'displayMulmed'])->name('view.posts.mulmed');
 
     Route::get('/software-engineering', function () {
         return view('softeng');
