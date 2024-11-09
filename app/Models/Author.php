@@ -9,7 +9,7 @@ class Author extends Model
     protected $table = 'authors';
     protected $guarded = [];
 
-    public function articlesRelation()
+    public function postsRelation()
     {
         return $this->hasMany(Post::class);
     }
