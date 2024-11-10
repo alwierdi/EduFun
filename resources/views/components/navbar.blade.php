@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid container fw-bold">
-        <a class="navbar-brand" href="#">EduFun</a>
+        <a class="navbar-brand" href="/">EduFun</a>
         <div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -15,11 +15,12 @@
                             Category
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/category/interactive-multimedia">Interactive Multimedia</a></li>
+                            <li><a class="dropdown-item" href="{{ route('view.posts.mulmed') }}">Interactive Multimedia</a></li>
                             <li><a class="dropdown-item" href="/category/software-engineering">Software Engineering</a></li>
                         </ul>
                     </li>
-                    <x-nav-link href="/">Writers</x-nav-link>
+                    {{-- <x-nav-link href="/">Writers</x-nav-link> --}}
+                    <a class="{{ request()->is('about-us') ? 'active' : '' }} nav-link" href="/writers">Writers</a>
                     <a class="{{ request()->is('about-us') ? 'active' : '' }} nav-link" href="/about-us">About Us</a>
                     <a class="{{ request()->is('popular') ? 'active' : '' }} nav-link" aria-disabled="true" href="/popular">Popular</a>
                 </div>
