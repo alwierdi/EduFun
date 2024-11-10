@@ -8,6 +8,7 @@ class Author extends Model
 {
     protected $table = 'authors';
     protected $guarded = [];
+    protected $primaryKey = 'author_id';
 
     public function postsRelation()
     {
