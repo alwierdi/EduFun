@@ -24,25 +24,24 @@ class PostMulmedSeeder extends Seeder
             'Hooks Interactive Multimedia'
         ];
 
-        // Query semua data authors == SELECT * FROM authors
+        // Query semua data authors dan categories
         $author = Author::all();
         $categories = Category::all();
 
-
         for ($i = 0; $i < count($title); $i++) {
-
             // Memastikan bahwa category yang sesuai ada di database
             $category = $categories->where('name', 'Interactive Multimedia')->first();
 
-            Post::create([
+            // Membuat post baru
+            $post = Post::create([
                 'title' => $title[$i],
                 'content' => $faker->paragraph,
                 'slug' => Str::slug($title[$i]),
-                'category_id' => $category->category_id,
-                // 'category_id' => Category::where('name', 'Interactive Multimedia')->value('id'),
-                // 'category_id' => 1,
-                'author_id' => $author->random()->author_id
+                'author_id' => $author->random()->author_id // memilih author secara acak
             ]);
+
+            // Setelah post dibuat, kaitkan kategori ke post
+            $post->categoriesRelation()->attach($category->category_id);
         }
     }
 }

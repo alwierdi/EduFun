@@ -23,19 +23,23 @@ class PostSoftengSeeder extends Seeder
             'Siap Menjadi Seorang Software Engineering',
         ];
 
-        $category = Category::where('name', 'Software Engineering')->first();
-
         $author = Author::all();
+
         for ($i = 0; $i < count($title); $i++) {
-            Post::create([
+            // Mendapatkan kategori 'Software Engineering'
+            $category = Category::where('name', 'Software Engineering')->first();
+
+            // Buat post baru
+            $post = Post::create([
                 'title' => $title[$i],
                 'content' => $faker->paragraph,
                 'slug' => Str::slug($title[$i]),
-                'category_id' => $category->category_id,
-                // 'category_id' => Category::where('name', 'Software Engineering'),
-                // 'category_id' => 2,
-                'author_id' => $author->random()->author_id
+                'author_id' => $author->random()->author_id // pilih author secara acak
             ]);
+
+            // Setelah post dibuat, attach kategori ke post
+            // Menggunakan categoriesRelation yang merupakan relasi many-to-many
+            $post->categoriesRelation()->attach($category->category_id);
         }
     }
 }
