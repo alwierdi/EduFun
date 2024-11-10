@@ -16,6 +16,6 @@ class Post extends Model
 
     public function categoriesRelation()
     {
-        return $this->hasMany(Category::class, 'category_id');
+        return $this->belongsToMany(Category::class, 'category_post', 'post_id', 'category_id');
     }
 }
